@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wikipedia Searcher</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="container">
+
+        <header class="main-header">
+            <h1 class="site-title">Wikipedia</h1>
+            <p class="site-subtitle">Write a word to get the Wikipedia results</p>
+        </header>
+
+        <section class="searchs-section">
+            <form id="search-form" class="search-form">
+                <div class="search-box">
+                    <div class="language-selector">
+                        <select id="language-select">
+                            <option value="ca">Català</option>
+                            <option value="en">English</option>
+                            <option value="es" selected>Español</option>
+                        </select>
+                    </div>
+                    <input 
+                        type="text" 
+                        id="search-input" 
+                        class="search-input"
+                        placeholder="Escribe una palabra"
+                        required
+                        autocomplete="off"
+                    >
+                </div>
+                <div class="search-button-box">
+                    <button type="submit" id="search-button" class="search-button">
+                        Buscar
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <div id="loading-spinner" class="loading-spinner" style="display:none;"></div>
+
+        <section id="results-box" class="results-box"></section>
+
+        <div id="errors-box" class="errors-box no-results"></div>
+
+        <section class="history-section">
+            <div class="history-header">
+                <h2 class="history-title">The last word you searched</h2>
+            </div>
+            <div id="my-history-list" class="history-list"></div>
+            <div class="history-header">
+                <h2 class="history-title">Last words searched by users</h2>
+            </div>
+            <div id="general-history-list" class="history-list"></div>
+        </section>
+
+    </div>
+
+    <script type="module" src="assets/js/script.js"></script>
+</body>
+</html>
