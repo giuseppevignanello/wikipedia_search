@@ -17,6 +17,7 @@ CREATE DATABASE wikipedia_search;
 USE wikipedia_search;
 
 -- Execute the rest of database.sql to create tables
+```
 
 ### 2. Configure Environment Variables
 
@@ -30,6 +31,7 @@ DB_NAME=wikipedia_search
 DB_USER=root
 DB_PASS=root
 DB_CHARSET=utf8mb4
+```
 
 ### 3. Create the Error Log File
 
