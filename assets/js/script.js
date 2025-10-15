@@ -2,12 +2,16 @@ import Validator from './modules/Validator.js';
 import SearchService from './modules/SearchService.js';
 import HistoryService from './modules/HistoryService.js';
 import UIHandler from './modules/UIHandler.js';
+import { BASE_API_URL } from './config.js';
+
 
 const ui = new UIHandler(searchFromHistory);
 const historyService = new HistoryService();
 
 const searchForm = document.getElementById('search-form');
 const languageSelect = document.getElementById('language-select');
+
+const backendEndpoint = BASE_API_URL;
 
 searchForm.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -36,7 +40,7 @@ searchForm.addEventListener('submit', async (e) => {
         const myHistory = historyService.getMyHistory();
         ui.renderMyHistory(myHistory, searchFromHistory);
 
-        const generalData = await fetch('backend/index.php?action=getHistory').then(r => r.json());
+        const generalData = await fetch(`${backendEndpoint}?action=getHistory`).then(r => r.json());
         if (generalData.success) ui.renderGeneralHistory(generalData.history, searchFromHistory);
     } catch (err) {
         ui.showError(err.message || 'An unexpected error occurred while searching.');
@@ -56,7 +60,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     ui.renderMyHistory(myHistory, searchFromHistory);
 
     try {
-        const generalData = await fetch('backend/index.php?action=getHistory').then(r => r.json());
+        const generalData = await fetch(`${backendEndpoint}?action=getHistory`).then(r => r.json());
         if (generalData.success) ui.renderGeneralHistory(generalData.history, searchFromHistory);
     } catch (err) {
         console.error('Error loading history:', err);

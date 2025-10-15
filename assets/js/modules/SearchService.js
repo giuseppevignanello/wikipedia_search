@@ -1,4 +1,5 @@
-const backendEndpoint = 'backend/index.php';
+import { BASE_API_URL } from '../config.js';
+const backendEndpoint = BASE_API_URL;
 
 export default class SearchService {
     static async searchWikipedia(term, language = 'es') {
